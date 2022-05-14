@@ -1,15 +1,20 @@
 class Solution {
-    public boolean isPalindrome(int x) {
-         if(x < 0){
+   public boolean isPalindrome(int x) {
+        
+    // return negative int
+    if(x < 0){
+        return false;
+    }
+    
+    // convert int to String
+    String intStr = Integer.valueOf(x).toString();
+    
+    int len = intStr.length();
+    for(int i=0; i< len/2; i++){
+        if(intStr.charAt(i) != intStr.charAt(intStr.length()-1-i)){
             return false;
         }
-        
-        int reverse=0;
-        int temp=x;
-        while(temp!=0){
-            reverse = reverse*10 + temp%10;
-            temp /= 10;
-        }
-        return reverse == x;
     }
+    return true;
+}
 }
